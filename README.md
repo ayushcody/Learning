@@ -1,6 +1,6 @@
-# Roadmap MVP - Full Stack Developer Learning Platform
+# Personalized Learning Platform using AI
 
-A production-ready learning platform MVP focused on Full Stack Developer career path. Users can sign up, complete onboarding, view interactive roadmaps, solve coding challenges in an embedded IDE, request AI hints, and track their progress with gamification elements.
+A production-ready learning platform focused on the Full Stack Developer career path. Users can sign up, complete onboarding, view interactive roadmaps, solve coding challenges in an embedded IDE, request AI hints, and track their progress with gamification elements.
 
 ## Project Overview
 
@@ -9,6 +9,36 @@ This is a full-stack application featuring:
 - **Backend**: Node.js + Express, Firebase Admin SDK, Judge0 code execution, Google Gemini AI hints
 - **Authentication**: Firebase Auth (Email/Password)
 - **Database**: Firestore for user profiles, submissions, and roadmap data
+
+## Architecture
+
+**Overview**  
+Single-page React app backed by an Express API. Firebase Auth issues ID tokens consumed by the backend, which uses Firestore for persistence, Gemini for AI-generated learning content and assessments, and Judge0 for code execution.
+
+**System Components**
+- React 18 + Vite SPA (Tailwind, React Router, Monaco) for onboarding, roadmap browsing, coding challenges, assessments, and topic search.
+- Express API (`server/index.js`) exposing `/api/*` routes for health, topic content, assessments, code execution, roadmap retrieval/seed, profiles/progress, and streaks.
+- Firebase Auth (client) + Firebase Admin SDK (server) for token verification and secure profile/progress mutations.
+- Firestore for roadmaps, user profiles/progress/submissions, topic-content cache, and streak tracking.
+- Gemini API for topic content generation, assessments, hints, and code problems.
+- Judge0 (via RapidAPI) for sandboxed code execution and test evaluation.
+- YouTube Data API (optional) for validating Gemini-suggested learning resources.
+- In-memory/background pre-cache worker (`preCacheService`) warming popular topics on startup.
+
+**Data Flow**
+1. User signs up/logs in via Firebase Auth in the SPA → receives ID token.
+2. Authenticated requests include `Authorization: Bearer <token>` to the Express API.
+3. Express verifies tokens with Firebase Admin; authorized routes read/write Firestore (profiles, progress, submissions, streaks).
+4. Topic search/roadmap generation calls Gemini; responses are sanitized, validated against YouTube, cached in Firestore with TTL, and returned to the client.
+5. Coding runs post to `/api/run-code` → API forwards to Judge0 → decodes results and optionally saves submissions/progress/streaks in Firestore.
+6. Assessments use Gemini for question generation/analysis; results drive personalized roadmaps and module auto-completion in the client.
+7. Background pre-cache populates popular topics through Gemini and stores them in Firestore to reduce latency/API usage.
+
+**Infrastructure & Deployment**
+- Frontend: Vite build suitable for Vercel/Netlify/static hosting; configure `VITE_API_BASE` and Firebase env vars.
+- Backend: Stateless Node/Express service deployable to Render/Fly.io/Cloud Run/Heroku; needs env vars for Firebase service account JSON, Gemini, Judge0 (RapidAPI), optional YouTube key; long-lived rate-limited HTTP server with background pre-cache on boot.
+- Data: Firestore as primary store; no local DB. External services (Gemini, Judge0, YouTube) accessed over HTTPS with API keys.
+- Scaling: Horizontal scaling of the Express app is safe (stateless, Firestore-backed); ensure pre-cache is idempotent if multiple instances run.
 
 ## Prerequisites
 
@@ -228,10 +258,3 @@ roadmap-mvp/
 - 🎮 Gamification: streaks, badges, progress bars
 - 📱 Responsive design with Tailwind CSS
 - ✨ Smooth animations with Framer Motion
-
-## License
-
-MIT
-
-
-# PBL-SEM-5-Project-1
