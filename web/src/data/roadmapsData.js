@@ -1,0 +1,358 @@
+/**
+ * Roadmaps Data
+ * 
+ * Comprehensive collection of career path roadmaps with detailed learning modules.
+ * Used for generating personalized learning paths and assessments.
+ * 
+ * Each roadmap contains:
+ * - id: Unique identifier
+ * - title: Roadmap name
+ * - description: Brief overview
+ * - icon: Emoji icon
+ * - modules: Array of learning modules with topics
+ * - estimatedDuration: Total time to complete
+ * - difficulty: Skill level required
+ * - inDemand: Whether the role is trending
+ */
+
+export const ROADMAPS = [
+    {
+        id: 'full-stack-developer',
+        title: 'Full Stack Developer',
+        description: 'Master both frontend and backend development to build complete web applications',
+        icon: '💻',
+        estimatedDuration: '6-8 months',
+        difficulty: 'Intermediate',
+        inDemand: true,
+        modules: [
+            { name: 'HTML & CSS Fundamentals', topics: ['HTML5 Semantics', 'CSS Grid & Flexbox', 'Responsive Design'] },
+            { name: 'JavaScript Basics', topics: ['Variables & Data Types', 'Functions & Scope', 'DOM Manipulation'] },
+            { name: 'React Fundamentals', topics: ['Components & Props', 'State Management', 'React Hooks'] },
+            { name: 'Node.js & Express', topics: ['Server Setup', 'REST APIs', 'Middleware'] },
+            { name: 'Databases', topics: ['SQL Basics', 'MongoDB', 'Database Design'] },
+            { name: 'Authentication', topics: ['JWT', 'OAuth', 'Session Management'] },
+            { name: 'Deployment', topics: ['CI/CD', 'Docker Basics', 'Cloud Hosting'] },
+        ],
+    },
+    {
+        id: 'backend-developer',
+        title: 'Backend Developer',
+        description: 'Build robust server-side applications and APIs',
+        icon: '⚙️',
+        estimatedDuration: '5-7 months',
+        difficulty: 'Intermediate',
+        inDemand: true,
+        modules: [
+            { name: 'Node.js & Express', topics: ['Server Fundamentals', 'REST API Design', 'Error Handling'] },
+            { name: 'Database Design', topics: ['SQL vs NoSQL', 'Schema Design', 'Indexing & Optimization'] },
+            { name: 'API Development', topics: ['REST Best Practices', 'GraphQL', 'API Documentation'] },
+            { name: 'Authentication & Security', topics: ['JWT & OAuth', 'Password Hashing', 'HTTPS & CORS'] },
+            { name: 'Microservices', topics: ['Service Architecture', 'Message Queues', 'Service Communication'] },
+            { name: 'Docker & Kubernetes', topics: ['Containerization', 'Orchestration', 'Scaling'] },
+            { name: 'Testing', topics: ['Unit Testing', 'Integration Testing', 'TDD'] },
+        ],
+    },
+    {
+        id: 'frontend-developer',
+        title: 'Frontend Developer',
+        description: 'Create beautiful, responsive user interfaces and experiences',
+        icon: '🎨',
+        estimatedDuration: '4-6 months',
+        difficulty: 'Beginner to Intermediate',
+        inDemand: true,
+        modules: [
+            { name: 'HTML & CSS Mastery', topics: ['Semantic HTML', 'CSS Grid & Flexbox', 'Animations'] },
+            { name: 'JavaScript Advanced', topics: ['ES6+ Features', 'Async/Await', 'Closures'] },
+            { name: 'React Advanced', topics: ['Context API', 'Custom Hooks', 'Performance Optimization'] },
+            { name: 'TypeScript', topics: ['Type System', 'Interfaces', 'Generics'] },
+            { name: 'State Management', topics: ['Redux', 'Zustand', 'React Query'] },
+            { name: 'Testing', topics: ['Jest', 'React Testing Library', 'Cypress'] },
+            { name: 'Build Tools', topics: ['Webpack', 'Vite', 'Babel'] },
+        ],
+    },
+    {
+        id: 'mobile-developer',
+        title: 'Mobile App Developer',
+        description: 'Build native and cross-platform mobile applications',
+        icon: '📱',
+        estimatedDuration: '5-7 months',
+        difficulty: 'Intermediate',
+        inDemand: true,
+        modules: [
+            { name: 'React Native Basics', topics: ['Components', 'Navigation', 'Styling'] },
+            { name: 'Mobile UI/UX', topics: ['Design Principles', 'Touch Gestures', 'Accessibility'] },
+            { name: 'State Management', topics: ['Redux', 'Context API', 'AsyncStorage'] },
+            { name: 'Native APIs', topics: ['Camera', 'Geolocation', 'Sensors'] },
+            { name: 'Push Notifications', topics: ['Firebase Cloud Messaging', 'Local Notifications'] },
+            { name: 'App Store Deployment', topics: ['iOS Deployment', 'Android Deployment', 'Code Signing'] },
+            { name: 'Performance', topics: ['Optimization', 'Memory Management', 'Testing'] },
+        ],
+    },
+    {
+        id: 'ai-ml-engineer',
+        title: 'AI/ML Engineer',
+        description: 'Build intelligent systems with machine learning and AI',
+        icon: '🤖',
+        estimatedDuration: '8-10 months',
+        difficulty: 'Advanced',
+        inDemand: true,
+        modules: [
+            { name: 'Python for ML', topics: ['NumPy', 'Pandas', 'Matplotlib'] },
+            { name: 'Machine Learning Basics', topics: ['Supervised Learning', 'Unsupervised Learning', 'Model Evaluation'] },
+            { name: 'Deep Learning', topics: ['Neural Networks', 'TensorFlow', 'PyTorch'] },
+            { name: 'Natural Language Processing', topics: ['Text Processing', 'Transformers', 'LLMs'] },
+            { name: 'Computer Vision', topics: ['Image Processing', 'CNN', 'Object Detection'] },
+            { name: 'Model Deployment', topics: ['Flask/FastAPI', 'Model Serving', 'MLOps'] },
+            { name: 'Generative AI', topics: ['GANs', 'Diffusion Models', 'GPT Integration'] },
+        ],
+    },
+    {
+        id: 'devops-engineer',
+        title: 'DevOps Engineer',
+        description: 'Automate and optimize software development and deployment',
+        icon: '🔧',
+        estimatedDuration: '6-8 months',
+        difficulty: 'Intermediate to Advanced',
+        inDemand: true,
+        modules: [
+            { name: 'Linux Fundamentals', topics: ['Command Line', 'Shell Scripting', 'System Administration'] },
+            { name: 'CI/CD Pipelines', topics: ['Jenkins', 'GitHub Actions', 'GitLab CI'] },
+            { name: 'Docker', topics: ['Containers', 'Dockerfiles', 'Docker Compose'] },
+            { name: 'Kubernetes', topics: ['Pods', 'Services', 'Deployments'] },
+            { name: 'Infrastructure as Code', topics: ['Terraform', 'Ansible', 'CloudFormation'] },
+            { name: 'Monitoring & Logging', topics: ['Prometheus', 'Grafana', 'ELK Stack'] },
+            { name: 'Cloud Platforms', topics: ['AWS', 'Azure', 'GCP'] },
+        ],
+    },
+    {
+        id: 'cybersecurity-specialist',
+        title: 'Cybersecurity Specialist',
+        description: 'Protect systems and data from cyber threats',
+        icon: '🔒',
+        estimatedDuration: '7-9 months',
+        difficulty: 'Intermediate to Advanced',
+        inDemand: true,
+        modules: [
+            { name: 'Network Security', topics: ['Firewalls', 'VPNs', 'Network Protocols'] },
+            { name: 'Cryptography', topics: ['Encryption', 'Hashing', 'SSL/TLS'] },
+            { name: 'Web Security', topics: ['OWASP Top 10', 'XSS', 'SQL Injection'] },
+            { name: 'Penetration Testing', topics: ['Reconnaissance', 'Exploitation', 'Reporting'] },
+            { name: 'Security Tools', topics: ['Wireshark', 'Metasploit', 'Burp Suite'] },
+            { name: 'Incident Response', topics: ['Threat Detection', 'Forensics', 'Recovery'] },
+            { name: 'Ethical Hacking', topics: ['Bug Bounties', 'Responsible Disclosure', 'Legal Aspects'] },
+        ],
+    },
+    {
+        id: 'data-scientist',
+        title: 'Data Scientist',
+        description: 'Extract insights from data using statistics and machine learning',
+        icon: '📊',
+        estimatedDuration: '7-9 months',
+        difficulty: 'Advanced',
+        inDemand: true,
+        modules: [
+            { name: 'Python for Data Science', topics: ['NumPy', 'Pandas', 'Matplotlib'] },
+            { name: 'Statistics', topics: ['Probability', 'Hypothesis Testing', 'Regression'] },
+            { name: 'Data Visualization', topics: ['Seaborn', 'Plotly', 'Dashboard Creation'] },
+            { name: 'Machine Learning', topics: ['Algorithms', 'Model Selection', 'Evaluation'] },
+            { name: 'Big Data', topics: ['Spark', 'Hadoop', 'Distributed Computing'] },
+            { name: 'SQL & Databases', topics: ['Query Optimization', 'Data Warehousing'] },
+            { name: 'Feature Engineering', topics: ['Data Cleaning', 'Transformation', 'Selection'] },
+        ],
+    },
+    {
+        id: 'data-analyst',
+        title: 'Data Analyst',
+        description: 'Transform data into actionable business insights',
+        icon: '📈',
+        estimatedDuration: '4-6 months',
+        difficulty: 'Beginner to Intermediate',
+        inDemand: true,
+        modules: [
+            { name: 'Excel & Spreadsheets', topics: ['Formulas', 'Pivot Tables', 'Data Analysis'] },
+            { name: 'SQL Basics', topics: ['SELECT Queries', 'Joins', 'Aggregations'] },
+            { name: 'Data Visualization', topics: ['Tableau', 'Power BI', 'Chart Types'] },
+            { name: 'Statistics Fundamentals', topics: ['Descriptive Stats', 'Distributions', 'Correlation'] },
+            { name: 'Python for Analysis', topics: ['Pandas', 'Data Cleaning', 'Analysis'] },
+            { name: 'Business Intelligence', topics: ['KPIs', 'Dashboards', 'Reporting'] },
+            { name: 'Data Storytelling', topics: ['Presentations', 'Insights Communication'] },
+        ],
+    },
+    {
+        id: 'data-engineer',
+        title: 'Data Engineer',
+        description: 'Build and maintain data pipelines and infrastructure',
+        icon: '🔧',
+        estimatedDuration: '6-8 months',
+        difficulty: 'Intermediate to Advanced',
+        inDemand: true,
+        modules: [
+            { name: 'Python & SQL', topics: ['Advanced Python', 'SQL Optimization', 'Query Design'] },
+            { name: 'Data Warehousing', topics: ['Snowflake', 'Redshift', 'BigQuery'] },
+            { name: 'ETL Pipelines', topics: ['Apache Airflow', 'Data Integration', 'Batch Processing'] },
+            { name: 'Big Data Technologies', topics: ['Spark', 'Hadoop', 'Kafka'] },
+            { name: 'Cloud Platforms', topics: ['AWS Data Services', 'GCP Data', 'Azure Data'] },
+            { name: 'Data Modeling', topics: ['Star Schema', 'Normalization', 'Data Lakes'] },
+            { name: 'Monitoring & Quality', topics: ['Data Quality', 'Pipeline Monitoring', 'Logging'] },
+        ],
+    },
+    {
+        id: 'android-developer',
+        title: 'Android Developer',
+        description: 'Build native Android applications with Kotlin',
+        icon: '🤖',
+        estimatedDuration: '5-7 months',
+        difficulty: 'Intermediate',
+        inDemand: true,
+        modules: [
+            { name: 'Kotlin Fundamentals', topics: ['Kotlin Syntax', 'OOP', 'Coroutines'] },
+            { name: 'Android SDK', topics: ['Activities', 'Fragments', 'Views'] },
+            { name: 'Jetpack Compose', topics: ['UI Components', 'Navigation', 'State Management'] },
+            { name: 'Data Persistence', topics: ['Room Database', 'SharedPreferences', 'DataStore'] },
+            { name: 'Networking', topics: ['Retrofit', 'REST APIs', 'JSON Parsing'] },
+            { name: 'Play Store', topics: ['Publishing', 'App Signing', 'Updates'] },
+            { name: 'Testing', topics: ['JUnit', 'Espresso', 'UI Testing'] },
+        ],
+    },
+    {
+        id: 'ios-developer',
+        title: 'iOS Developer',
+        description: 'Create iOS applications with Swift and SwiftUI',
+        icon: '📱',
+        estimatedDuration: '5-7 months',
+        difficulty: 'Intermediate',
+        inDemand: true,
+        modules: [
+            { name: 'Swift Fundamentals', topics: ['Swift Syntax', 'Optionals', 'Closures'] },
+            { name: 'SwiftUI', topics: ['Views', 'Navigation', 'State Management'] },
+            { name: 'UIKit Basics', topics: ['View Controllers', 'Auto Layout', 'Storyboards'] },
+            { name: 'Data Persistence', topics: ['Core Data', 'UserDefaults', 'Keychain'] },
+            { name: 'Networking', topics: ['URLSession', 'Combine', 'REST APIs'] },
+            { name: 'App Store', topics: ['Provisioning', 'Distribution', 'TestFlight'] },
+            { name: 'Testing', topics: ['XCTest', 'UI Testing', 'TDD'] },
+        ],
+    },
+    {
+        id: 'blockchain-developer',
+        title: 'Blockchain Developer',
+        description: 'Build decentralized applications and smart contracts',
+        icon: '⛓️',
+        estimatedDuration: '7-9 months',
+        difficulty: 'Advanced',
+        inDemand: true,
+        modules: [
+            { name: 'Blockchain Fundamentals', topics: ['Distributed Ledgers', 'Consensus', 'Cryptography'] },
+            { name: 'Solidity', topics: ['Smart Contracts', 'EVM', 'Gas Optimization'] },
+            { name: 'Web3 Development', topics: ['Web3.js', 'Ethers.js', 'DApp Frontend'] },
+            { name: 'Token Standards', topics: ['ERC-20', 'ERC-721', 'ERC-1155'] },
+            { name: 'Testing & Security', topics: ['Hardhat', 'Truffle', 'Smart Contract Auditing'] },
+            { name: 'DeFi Protocols', topics: ['Uniswap', 'Lending', 'Staking'] },
+            { name: 'Deployment', topics: ['Testnet', 'Mainnet', 'IPFS'] },
+        ],
+    },
+    {
+        id: 'qa-engineer',
+        title: 'QA Engineer',
+        description: 'Ensure software quality through testing and automation',
+        icon: '✅',
+        estimatedDuration: '4-6 months',
+        difficulty: 'Beginner to Intermediate',
+        inDemand: true,
+        modules: [
+            { name: 'Testing Fundamentals', topics: ['Test Planning', 'Test Cases', 'Bug Reporting'] },
+            { name: 'Manual Testing', topics: ['Functional Testing', 'Regression', 'Exploratory'] },
+            { name: 'Automation Basics', topics: ['Selenium', 'WebDriver', 'Test Scripts'] },
+            { name: 'API Testing', topics: ['Postman', 'REST Assured', 'API Validation'] },
+            { name: 'Performance Testing', topics: ['JMeter', 'Load Testing', 'Metrics'] },
+            { name: 'CI/CD Integration', topics: ['Jenkins', 'GitHub Actions', 'Test Automation'] },
+            { name: 'Test Frameworks', topics: ['Jest', 'Cypress', 'Playwright'] },
+        ],
+    },
+    {
+        id: 'software-architect',
+        title: 'Software Architect',
+        description: 'Design scalable and maintainable system architectures',
+        icon: '🏛️',
+        estimatedDuration: '8-12 months',
+        difficulty: 'Advanced',
+        inDemand: true,
+        modules: [
+            { name: 'Architecture Patterns', topics: ['Microservices', 'Monolith', 'Event-Driven'] },
+            { name: 'System Design', topics: ['Scalability', 'High Availability', 'Load Balancing'] },
+            { name: 'Design Patterns', topics: ['SOLID', 'Creational', 'Structural', 'Behavioral'] },
+            { name: 'Distributed Systems', topics: ['CAP Theorem', 'Consistency', 'Partitioning'] },
+            { name: 'Cloud Architecture', topics: ['AWS Well-Architected', 'Multi-Cloud', 'Serverless'] },
+            { name: 'Security Architecture', topics: ['Authentication', 'Authorization', 'Encryption'] },
+            { name: 'Documentation', topics: ['Architecture Diagrams', 'ADRs', 'Technical Specs'] },
+        ],
+    },
+    {
+        id: 'ux-designer',
+        title: 'UX Designer',
+        description: 'Create user-centered designs and experiences',
+        icon: '🎨',
+        estimatedDuration: '5-7 months',
+        difficulty: 'Beginner to Intermediate',
+        inDemand: true,
+        modules: [
+            { name: 'UX Fundamentals', topics: ['User Research', 'Personas', 'User Journeys'] },
+            { name: 'Wireframing', topics: ['Sketching', 'Lo-Fi Wireframes', 'Information Architecture'] },
+            { name: 'Prototyping', topics: ['Figma', 'Adobe XD', 'Interactive Prototypes'] },
+            { name: 'Visual Design', topics: ['Color Theory', 'Typography', 'Design Systems'] },
+            { name: 'Usability Testing', topics: ['A/B Testing', 'User Feedback', 'Iteration'] },
+            { name: 'Accessibility', topics: ['WCAG', 'Inclusive Design', 'Screen Readers'] },
+            { name: 'Collaboration', topics: ['Design Handoff', 'Developer Collaboration', 'Stakeholder Management'] },
+        ],
+    },
+    {
+        id: 'game-developer',
+        title: 'Game Developer',
+        description: 'Create engaging games and interactive experiences',
+        icon: '🎮',
+        estimatedDuration: '7-9 months',
+        difficulty: 'Intermediate to Advanced',
+        inDemand: true,
+        modules: [
+            { name: 'Game Design Basics', topics: ['Game Mechanics', 'Level Design', 'Player Experience'] },
+            { name: 'Unity Engine', topics: ['Unity Interface', 'C# Scripting', 'Prefabs'] },
+            { name: '2D Game Development', topics: ['Sprites', 'Animations', '2D Physics'] },
+            { name: '3D Game Development', topics: ['3D Models', 'Lighting', '3D Physics'] },
+            { name: 'Game AI', topics: ['Pathfinding', 'Behavior Trees', 'NPC AI'] },
+            { name: 'Multiplayer', topics: ['Networking', 'Synchronization', 'Server Architecture'] },
+            { name: 'Publishing', topics: ['Steam', 'App Stores', 'Monetization'] },
+        ],
+    },
+    {
+        id: 'mlops-engineer',
+        title: 'MLOps Engineer',
+        description: 'Deploy and manage machine learning models in production',
+        icon: '🤖',
+        estimatedDuration: '6-8 months',
+        difficulty: 'Advanced',
+        inDemand: true,
+        modules: [
+            { name: 'ML Fundamentals', topics: ['Model Training', 'Evaluation', 'Hyperparameters'] },
+            { name: 'Model Deployment', topics: ['Flask/FastAPI', 'Model Serving', 'REST APIs'] },
+            { name: 'Containerization', topics: ['Docker', 'Kubernetes', 'Model Packaging'] },
+            { name: 'CI/CD for ML', topics: ['ML Pipelines', 'Automated Testing', 'Version Control'] },
+            { name: 'Monitoring', topics: ['Model Drift', 'Performance Metrics', 'Logging'] },
+            { name: 'MLOps Platforms', topics: ['MLflow', 'Kubeflow', 'SageMaker'] },
+            { name: 'Model Optimization', topics: ['Quantization', 'Pruning', 'Edge Deployment'] },
+        ],
+    },
+];
+
+// Helper function to get roadmap by ID
+export function getRoadmapById(id) {
+    return ROADMAPS.find(roadmap => roadmap.id === id);
+}
+
+// Helper function to get all roadmap IDs
+export function getAllRoadmapIds() {
+    return ROADMAPS.map(roadmap => roadmap.id);
+}
+
+// Helper function to get trending roadmaps
+export function getTrendingRoadmaps() {
+    return ROADMAPS.filter(roadmap => roadmap.inDemand);
+}

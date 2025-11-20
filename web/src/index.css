@@ -1,0 +1,249 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Vibrant HSL Color Palette */
+    --primary-hue: 250;
+    --primary: hsl(var(--primary-hue), 85%, 60%);
+    --primary-dark: hsl(var(--primary-hue), 85%, 50%);
+    --primary-light: hsl(var(--primary-hue), 90%, 70%);
+    --primary-glow: hsl(var(--primary-hue), 100%, 60%);
+    
+    --secondary-hue: 280;
+    --secondary: hsl(var(--secondary-hue), 75%, 55%);
+    
+    --accent-hue: 170;
+    --accent: hsl(var(--accent-hue), 70%, 50%);
+    --accent-light: hsl(var(--accent-hue), 70%, 92%);
+    
+    --success-hue: 145;
+    --success: hsl(var(--success-hue), 65%, 50%);
+    --success-light: hsl(var(--success-hue), 70%, 95%);
+    
+    --warning-hue: 45;
+    --warning: hsl(var(--warning-hue), 95%, 55%);
+    --warning-light: hsl(var(--warning-hue), 100%, 96%);
+    
+    --fire-orange: hsl(25, 95%, 55%);
+    --fire-red: hsl(5, 90%, 60%);
+  }
+  
+  body {
+    @apply bg-gradient-to-br from-gray-50 via-indigo-50/30 to-purple-50/20 text-gray-900;
+    min-height: 100vh;
+  }
+  
+  * {
+    @apply transition-colors duration-200;
+  }
+}
+
+@layer components {
+  /* Primary Gradient Button */
+  .btn-primary {
+    @apply relative bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-700 text-white px-6 py-3 rounded-xl font-semibold shadow-lg shadow-indigo-500/30 hover:shadow-xl hover:shadow-indigo-500/40 transition-all duration-300 hover:-translate-y-0.5;
+    background-size: 200% 100%;
+    animation: shimmer 3s infinite;
+  }
+  
+  @keyframes shimmer {
+    0%, 100% { background-position: 0% 0%; }
+    50% { background-position: 100% 0%; }
+  }
+  
+  .btn-primary:active {
+    @apply translate-y-0 shadow-md;
+  }
+  
+  /* Secondary Button */
+  .btn-secondary {
+    @apply bg-white/80 backdrop-blur-sm text-gray-800 px-6 py-3 rounded-xl font-semibold border-2 border-gray-200 hover:border-indigo-300 hover:bg-white transition-all duration-200 hover:shadow-lg;
+  }
+  
+  /* Success Button */
+  .btn-success {
+    @apply bg-gradient-to-r from-green-500 to-emerald-600 text-white px-6 py-3 rounded-xl font-semibold shadow-lg shadow-green-500/30 hover:shadow-xl hover:shadow-green-500/40 transition-all duration-300 hover:-translate-y-0.5;
+  }
+  
+  /* Glass Card */
+  .card {
+    @apply bg-white/90 backdrop-blur-xl rounded-2xl shadow-xl shadow-gray-200/50 p-6 border border-white/20 hover:shadow-2xl hover:shadow-gray-300/50 transition-all duration-300;
+  }
+  
+  .card-glass {
+    @apply bg-white/60 backdrop-blur-2xl rounded-2xl shadow-2xl shadow-purple-200/30 p-6 border border-white/40 hover:bg-white/70 transition-all duration-300;
+  }
+  
+  /* Gradient Card */
+  .card-gradient {
+    @apply relative bg-gradient-to-br from-purple-500/10 via-indigo-500/10 to-purple-600/10 backdrop-blur-xl rounded-2xl shadow-xl p-6 border border-purple-200/30 overflow-hidden;
+  }
+  
+  .card-gradient::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent;
+    transform: translateX(-100%);
+    animation: card-shine 3s infinite;
+  }
+  
+  @keyframes card-shine {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+  
+  /* Input Field */
+  .input-field {
+    @apply w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-4 focus:ring-indigo-500/20 focus:border-indigo-500 bg-white/80 backdrop-blur-sm transition-all duration-200;
+  }
+  
+  /* Streak Fire Animation */
+  .fire-icon {
+    @apply inline-block;
+    animation: fire-flicker 1.5s infinite alternate;
+  }
+  
+  @keyframes fire-flicker {
+    0%, 100% { 
+      transform: scale(1) rotate(-5deg);
+      filter: hue-rotate(0deg) brightness(1);
+    }
+    25% { 
+      transform: scale(1.1) rotate(5deg);
+      filter: hue-rotate(10deg) brightness(1.1);
+    }
+    75% { 
+      transform: scale(0.95) rotate(-3deg);
+      filter: hue-rotate(-10deg) brightness(0.95);
+    }
+  }
+  
+  /* Pulse Animation for Notifications */
+  .pulse-glow {
+    @apply relative;
+  }
+  
+  .pulse-glow::after {
+    content: '';
+    @apply absolute inset-0 rounded-full bg-indigo-500/30;
+    animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  @keyframes pulse-ring {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1.5);
+      opacity: 0;
+    }
+  }
+  
+  /* Badge Styles */
+  .badge {
+    @apply inline-flex items-center gap-1 px-3 py-1 rounded-full text-sm font-medium;
+  }
+  
+  .badge-success {
+    @apply bg-gradient-to-r from-green-100 to-emerald-100 text-green-800 border border-green-200;
+  }
+  
+  .badge-warning {
+    @apply bg-gradient-to-r from-yellow-100 to-amber-100 text-yellow-800 border border-yellow-200;
+  }
+  
+  .badge-info {
+    @apply bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-800 border border-blue-200;
+  }
+  
+  .badge-fire {
+    @apply bg-gradient-to-r from-orange-100 to-red-100 text-orange-800 border border-orange-200;
+    animation: badge-glow 2s infinite;
+  }
+  
+  @keyframes badge-glow {
+    0%, 100% {
+      box-shadow: 0 0 5px rgba(251, 146, 60, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 15px rgba(251, 146, 60, 0.5);
+    }
+  }
+  
+  /* Progress Bar */
+  .progress-bar {
+    @apply relative w-full h-3 bg-gray-200 rounded-full overflow-hidden;
+  }
+  
+  .progress-bar-fill {
+    @apply h-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-full transition-all duration-700 ease-out;
+    background-size: 200% 100%;
+    animation: progress-shimmer 2s infinite;
+  }
+  
+  @keyframes progress-shimmer {
+    0%, 100% { background-position: 0% 0%; }
+    50% { background-position: 100% 0%; }
+  }
+  
+  /* Hover Lift Effect */
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-xl;
+  }
+  
+  /* Glassmorphism Overlay */
+  .glass-overlay {
+    @apply fixed inset-0 bg-black/20 backdrop-blur-md z-40;
+    animation: fadeIn 0.2s ease-out;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  /* Streak Calendar Day */
+  .calendar-day {
+    @apply w-10 h-10 rounded-lg flex items-center justify-center text-sm font-medium transition-all duration-200;
+  }
+  
+  .calendar-day-active {
+    @apply bg-gradient-to-br from-green-400 to-emerald-500 text-white shadow-lg shadow-green-500/30;
+    animation: pop-in 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  .calendar-day-inactive {
+    @apply bg-gray-100 text-gray-400;
+  }
+  
+  @keyframes pop-in {
+    0% { transform: scale(0); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+  }
+  
+  /* Celebration Confetti Container */
+  .confetti-container {
+    @apply fixed inset-0 pointer-events-none z-50;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent;
+  }
+  
+  .text-gradient-fire {
+    @apply bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 bg-clip-text text-transparent;
+  }
+  
+  .shadow-glow {
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+  }
+  
+  .shadow-glow-green {
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.4);
+  }
+}
