@@ -88,7 +88,7 @@ npm start
 By default, the backend will run at:
 
 ```
-http://localhost:8000
+http://localhost:4000
 ```
 
 ---
@@ -115,7 +115,7 @@ cp .env.example .env
 Open `.env` and fill in your values:
 
 ```env
-VITE_API_BASE=http://localhost:8000
+VITE_API_BASE=http://localhost:4000
 VITE_FIREBASE_API_KEY=your_firebase_web_api_key
 VITE_FIREBASE_AUTH_DOMAIN=your-project.firebaseapp.com
 VITE_FIREBASE_PROJECT_ID=your_firebase_project_id
@@ -206,7 +206,7 @@ The commands above work on:
 
 ### CORS / API URL Issues
 
-**Check** that `VITE_API_BASE` in `web/.env` exactly matches your backend URL (e.g., `http://localhost:8000`).
+**Check** that `VITE_API_BASE` in `web/.env` exactly matches your backend URL (e.g., `http://localhost:4000`).
 
 ### Firebase Auth Errors
 
