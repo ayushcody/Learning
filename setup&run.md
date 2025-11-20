@@ -66,7 +66,7 @@ cp .env.example .env
 Open `.env` and fill in your values:
 
 ```env
-PORT=8000
+PORT=4000
 GEMINI_API_KEY=your_gemini_api_key
 RAPIDAPI_KEY=your_judge0_rapidapi_key
 YOUTUBE_API_KEY=your_youtube_data_api_key
